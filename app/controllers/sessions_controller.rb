@@ -14,4 +14,11 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    session.clear
+    @current_user = nil
+
+    redirect_to root_path, notice: "Logged out."
+  end
+
 end
