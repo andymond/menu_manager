@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.where("lower(status) = ?", "complete")
   end
 
   def show
