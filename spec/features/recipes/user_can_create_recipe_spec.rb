@@ -9,7 +9,6 @@ describe "user can create recipe" do
     fill_in"recipe[status]", with: "Incomplete"
     click_on "Create Recipe"
 
-    expect(current_path).to eq("recipes/1")
     expect(page).to have_content("Waffles")
     expect(page).to have_content("Make the waffles")
     expect(page).to have_content("Incomplete")
