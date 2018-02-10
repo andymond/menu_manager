@@ -29,8 +29,9 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
-      redirect_to recipe_path(@recipe)
+      redirect_to recipe_path(@recipe), notice: "#{@recipe.name} updated."
     else
+      flash.now[:notice] = "#{@recipe.name} was not updated due to an error."
       render :edit
     end
   end
