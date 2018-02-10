@@ -15,8 +15,9 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
-      redirect_to recipe_path(@recipe)
+      redirect_to recipe_path(@recipe), notice: "#{@recipe.name} created."
     else
+      flash.now[:notice] = "#{@recipe.name} was not created due to an error."
       render :new
     end
   end
