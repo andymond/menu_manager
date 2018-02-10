@@ -7,7 +7,7 @@ describe "user can sign up for account" do
 
     expect(current_path).to eq(new_user_path)
 
-    fill_in "user[name]", with: "testuser"
+    fill_in "user[username]", with: "testuser"
     fill_in "user[email]", with: "testuser@example.com"
     fill_in "user[password]", with: "password"
     fill_in "user[password_confirmation]", with: "password"
