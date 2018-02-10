@@ -7,3 +7,5 @@
 <div class="recipe_status">
   <%= @recipe.status %>
 </div>
+
+<%= link_to "Delete Recipe", recipe_path(@recipe), method: :delete %>
