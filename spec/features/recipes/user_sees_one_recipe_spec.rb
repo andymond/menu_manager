@@ -8,5 +8,6 @@ describe "user navigates to user show page" do
 
     expect(page).to have_content(recipe.name)
     expect(page).to have_content(recipe.instructions)
+    expect(page).to have_content(recipe.status)
   end
 end
