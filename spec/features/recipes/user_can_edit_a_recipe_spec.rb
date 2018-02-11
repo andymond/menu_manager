@@ -10,7 +10,11 @@ describe "logged-in user can edit recipe" do
   end
   it "allows user to edit own recipe" do
     recipe = create(:recipe, user_id: @user.id)
-    visit edit_recipe_path(recipe)
+    visit recipe_path(recipe)
+
+    click_on "Edit Recipe"
+
+    expect(current_path).to eq(edit_recipe_path(recipe))
 
     fill_in"recipe[name]", with: "Waffles"
     fill_in"recipe[instructions]", with: "Make the waffles"
