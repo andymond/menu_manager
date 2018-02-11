@@ -14,6 +14,8 @@ class Admin::RecipesController < Admin::BaseController
     redirect_to admin_recipes_path
   end
 
+  
+
   private
 
   def recipe_params
