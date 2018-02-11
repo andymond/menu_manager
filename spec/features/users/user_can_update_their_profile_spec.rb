@@ -10,7 +10,8 @@ describe "default user can update their own profile" do
     fill_in "user[email]", with: "hushpuppies666@hotmail.net"
     click_on "Update User"
 
-    expect(current_path).to eq(user_path)
+    expect(current_path).to eq(user_path(user))
+
     expect(page).to have_content("hushpuppies666@hotmail.net")
     expect(page).to have_content("User info updated.")
  end

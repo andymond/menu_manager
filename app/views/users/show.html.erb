@@ -12,5 +12,6 @@
 <% if current_user.id == @user.id %>
 <%= @user.role %>
 <%= @user.created_at %>
+<%= link_to "Update Profile", edit_user_path(@user) %>
 <%= link_to "Logout", login_path, method: :delete %>
 <% end %>
