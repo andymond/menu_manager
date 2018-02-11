@@ -1,14 +1,13 @@
 require "rails_helper"
 
-describe "user can create recipe" do
-  before(:context) do
+describe "logged-in user can create recipe" do
+  before(:example) do
     user = create(:user)
     visit login_path
     fill_in "email", with: user.email
     fill_in "password", with: user.password
     click_on "Log in"
   end
-
   it "allows user to create recipe with required attrs" do
     visit new_recipe_path
 
