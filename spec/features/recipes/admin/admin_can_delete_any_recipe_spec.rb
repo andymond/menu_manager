@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe "admin can delete any recipe"
   context "as admin" do
-    it "allows admin to delete any recipe" do
+    it "allows admin to delete any recipe from show page" do
       admin = create(:user, role: 1)
       user = create(:user)
       recipe_1 = create(:recipe, user_id: user.id)
