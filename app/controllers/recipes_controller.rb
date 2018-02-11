@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :require_login
 
   def index
     @recipes = Recipe.where(status: :complete)
@@ -49,4 +50,7 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:name, :status, :instructions, :employee_credit, :image)
   end
 
+  def require_login
+    redirect_to root_path, notice: "Please log in to access MenuManager." if current_user.nil?
+  end
 end

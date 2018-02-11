@@ -1,6 +1,13 @@
 require "rails_helper"
 
-describe "user navigates to view all recipes" do
+describe "logged in default user sees all complete recipes" do
+  before(:example) do
+    user = create(:user)
+    visit login_path
+    fill_in "email", with: user.email
+    fill_in "password", with: user.password
+    click_on "Log in"
+  end
   it "displays list of all completed recipes" do
     recipe_1 = create(:recipe, status: "complete")
     recipe_2 = create(:recipe, status: "complete")

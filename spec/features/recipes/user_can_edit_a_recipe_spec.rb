@@ -1,6 +1,13 @@
 require "rails_helper"
 
-describe "user can edit recipe" do
+describe "logged-in user can edit recipe" do
+  before(:example) do
+    user = create(:user)
+    visit login_path
+    fill_in "email", with: user.email
+    fill_in "password", with: user.password
+    click_on "Log in"
+  end
   it "allows user to edit recipe" do
     recipe = create(:recipe)
     visit edit_recipe_path(recipe)

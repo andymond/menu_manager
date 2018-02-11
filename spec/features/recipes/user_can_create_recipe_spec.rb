@@ -30,8 +30,10 @@ describe "logged-in user can create recipe" do
   end
 end
 describe "logged out user can't see new recipe path" do
-  visit new_recipe_path
+  it "redirects logged out users to root" do
+    visit new_recipe_path
 
-  expect(current_path).to eq(root_path)
-  expect(page).to have_content("You must be logged-in to create a recipe.")
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content("Please log in to access MenuManager.")
+  end
 end
