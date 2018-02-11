@@ -41,7 +41,11 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = current_user.recipes.find_by(id: params[:id])
+    if current_user.admin?
+      @recipe = Recipe.find(params[:id])
+    else
+      @recipe = current_user.recipes.find_by(id: params[:id])
+    end
     if @recipe.nil?
       redirect_to user_path(current_user), notice: "You can only edit your own recipes."
     else

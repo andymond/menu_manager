@@ -1,0 +1,25 @@
+<h1><%= @recipe.name %></h1>
+
+<div class="recipe-status">
+  <%= @recipe.status %>
+</div>
+
+<div class="recipe-instructions">
+  <%= @recipe.instructions %>
+</div>
+
+<div class="recipe-user">
+  <%= @recipe.user.username %>
+</div>
+
+<div class="recipe-created">
+  <%= @recipe.created_at %>
+</div>
+
+<div class="recipe-updated">
+  <%= @recipe.updated_at %>
+</div>
+
+<%= link_to "Edit Recipe", edit_admin_recipe_path(@recipe) %>
+<%= link_to "Delete Recipe", recipe_path(@recipe), method: :delete %>
+<%= link_to "Cook Recipe View", recipe_path(@recipe) %>

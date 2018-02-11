@@ -3,7 +3,7 @@
   <head>
     <title>MenuManager</title>
     <%= csrf_meta_tags %>
-
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
@@ -12,6 +12,11 @@
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
     <% end -%>
+    <nav>
+      <% unless current_user.nil? %>
+      <p>logged in as <%= current_user.role %> <%= current_user.username %></p>
+      <% end %>
+    </nav>
     <%= yield %>
   </body>
 </html>

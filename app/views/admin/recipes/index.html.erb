@@ -1,8 +1,14 @@
 <h1>All Chef Recipes</h1>
 
 <% @recipes.each do |recipe| %>
-  <%= recipe.name %>
-  <%= recipe.instructions %>
-  <%= recipe.status %>
-  <%= recipe.employee_credit %>
+  <div class="index_recipe">
+    <%= recipe.name %>
+    <%= recipe.instructions %>
+    <%= recipe.status %>
+    <%= recipe.user.username %>
+    <div class="modify">
+      <%= link_to "Edit Recipe", edit_admin_recipe_path(recipe) %>
+      <%= link_to "Delete Recipe", recipe_path(recipe), data: {confirm: "Are you sure you want to delete #{recipe.name}?"} %>
+    </div>
+  </div>
 <% end %>
