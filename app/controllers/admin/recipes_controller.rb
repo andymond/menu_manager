@@ -14,7 +14,9 @@ class Admin::RecipesController < Admin::BaseController
     redirect_to admin_recipes_path
   end
 
-  
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
 
   private
 
