@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users
   namespace :admin do
     resources :recipes, except: [:new, :destroy]
+    resources :users, only: [:edit, :destroy]
   end
   resources :recipes
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

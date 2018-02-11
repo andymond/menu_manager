@@ -13,7 +13,7 @@ describe "default user can update their own profile" do
     expect(current_path).to eq(user_path(user))
 
     expect(page).to have_content("hushpuppies666@hotmail.net")
-    expect(page).to have_content("User info updated.")
+    expect(page).to have_content("#{user.username} updated.")
  end
  it "doesn't allow them to update others' profiles" do
    user = create(:user)

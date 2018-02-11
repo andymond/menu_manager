@@ -28,9 +28,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     if @user.update(user_params)
-      flash.notice = "User info updated."
+      flash.notice = "#{@user.username} updated."
       redirect_to user_path(@user)
     else
       flash.notice = "User failed to update."
