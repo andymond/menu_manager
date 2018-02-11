@@ -1,0 +1,21 @@
+<%= form_for [@admin, @recipe] do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :instructions %>
+  <%= f.text_field :instructions %>
+
+  <%= f.label :image %>
+  <%= f.text_field :image %>
+
+  <%= f.label :status %>
+  <%= f.select :status, options_for_select(["complete", "in_progress", "for_review"].map {|s| [s.capitalize, c]}) %>
+
+  <%= f.label "Created by" %>
+  <%= f.select :user_id, options_for_select(@users.map {|u| [u.username, u.id]}) %>
+
+  <%= f.submit %>
+
+
+<% end %>

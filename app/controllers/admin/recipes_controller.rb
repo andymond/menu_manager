@@ -4,6 +4,8 @@ class Admin::RecipesController < Admin::BaseController
   end
 
   def edit
+    @admin = current_admin
     @recipe = Recipe.find(params[:id])
+    @users = User.all
   end
 end
