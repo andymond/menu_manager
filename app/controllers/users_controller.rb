@@ -20,10 +20,15 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if current_user.id.to_s == params[:id]
+      @user = User.find(current_user.id)
+    else
+      redirect_to user_path(@user), notice: "not found"
+    end
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
     if @user.update(user_params)
       flash.notice = "User info updated."
       redirect_to user_path(@user)

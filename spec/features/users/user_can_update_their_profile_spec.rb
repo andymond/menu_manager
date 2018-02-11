@@ -25,6 +25,6 @@ describe "default user can update their own profile" do
 
    visit edit_user_path(user_2)
 
-   expect(page).to have_content("page doesn't exist")
+   expect(page).to have_content("not found")
  end
 end
