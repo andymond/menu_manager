@@ -9,6 +9,8 @@ describe "User visits recipes index" do
 
       visit admin_recipes_path
       expect(page).to have_content("All Chef Recipes")
+      expect(page).to have_link("Delete")
+      expect(page).to have_link("Edit")
     end
   end
   context "as default user" do
