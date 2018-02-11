@@ -41,6 +41,7 @@ group :development, :test do
   gem 'active_designer'
   gem 'shoulda-matchers'
   gem 'factory_bot_rails'
+  gem 'database_cleaner'
 end
 
 group :development do

@@ -1,7 +1,8 @@
 class RecipesController < ApplicationController
+  before_action :require_login
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.where(status: :complete)
   end
 
   def show
@@ -9,11 +10,11 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.new
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.new(recipe_params)
     if @recipe.save
       redirect_to recipe_path(@recipe), notice: "#{@recipe.name} created."
     else
@@ -23,7 +24,10 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find_by(id: params[:id])
+    if @recipe.nil?
+      redirect_to user_path(current_user), notice: "You can only edit your own recipes."
+    end
   end
 
   def update
@@ -37,15 +41,22 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
-    @recipe.destroy
-
-    redirect_to recipes_path, notice: "#{@recipe.name} was deleted."
+    @recipe = current_user.recipes.find_by(id: params[:id])
+    if @recipe.nil?
+      redirect_to user_path(current_user), notice: "You can only edit your own recipes."
+    else
+      @recipe.destroy
+      redirect_to recipes_path, notice: "#{@recipe.name} was deleted."
+    end
   end
 
   private
 
   def recipe_params
     params.require(:recipe).permit(:name, :status, :instructions, :employee_credit, :image)
+  end
+
+  def require_login
+    redirect_to root_path, notice: "Please log in to access MenuManager." if current_user.nil?
   end
 end
