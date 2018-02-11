@@ -12,13 +12,13 @@ describe "admin can edit any recipe"
       visit edit_admin_recipe_path(recipe_1)
 
       expect(current_path).to eq(edit_admin_recipe_path(recipe_1))
-      fill_in "name", with: "Pasta"
-      fill_in "instructions", with: "Boil the pasta"
-      select("complete", :from => "recipe[status]")
-      select(admin.username, :from => "recipe[user]")
+      fill_in "recipe[name]", with: "Pasta"
+      fill_in "recipe[instructions]", with: "Boil the pasta"
+      select("Complete", :from => "recipe[status]")
+      select(admin.username, :from => "recipe[user_id]")
       click_on "Update Recipe"
 
-      expect(page).to have_content("#{recipe_1.name} was updated.")
+      expect(page).to have_content("Pasta updated.")
       expect(current_path).to eq(recipe_path(recipe_1))
     end
   end
