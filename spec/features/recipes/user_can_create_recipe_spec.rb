@@ -29,3 +29,9 @@ describe "logged-in user can create recipe" do
     expect(page).to have_content("Waffles was not created due to an error.")
   end
 end
+describe "logged out user can't see new recipe path" do
+  visit new_recipe_path
+
+  expect(current_path).to eq(root_path)
+  expect(page).to have_content("You must be logged-in to create a recipe.")
+end
