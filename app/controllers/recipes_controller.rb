@@ -41,10 +41,13 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id]) #current_user.recipes.find_by(id: params[:id])
-    @recipe.destroy
-
-    redirect_to recipes_path, notice: "#{@recipe.name} was deleted."
+    @recipe = current_user.recipes.find_by(id: params[:id])
+    if @recipe.nil?
+      redirect_to user_path(current_user), notice: "You can only edit your own recipes."
+    else
+      @recipe.destroy
+      redirect_to recipes_path, notice: "#{@recipe.name} was deleted."
+    end
   end
 
   private
