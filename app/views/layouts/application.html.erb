@@ -12,6 +12,11 @@
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
     <% end -%>
+    <nav>
+      <% unless current_user.nil? %>
+      <p>logged in as <%= current_user.role %> <%= current_user.username %></p>
+      <% end %>
+    </nav>
     <%= yield %>
   </body>
 </html>
