@@ -24,7 +24,10 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find(params[:id]) #current_user.recipes.find_by(id: params[:id])
+    @recipe = current_user.recipes.find_by(id: params[:id])
+    if @recipe.nil?
+      redirect_to user_path(current_user), notice: "You can only edit your own recipes."
+    end
   end
 
   def update
