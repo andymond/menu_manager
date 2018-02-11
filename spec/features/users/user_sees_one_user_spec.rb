@@ -4,6 +4,7 @@ describe "default user navigates to user profile" do
   context "user views own profile" do
     it "displays detailed user information" do
       user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit user_path(user)
 
