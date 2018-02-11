@@ -1,15 +1,15 @@
 require "rails_helper"
 
-describe "user navigates to user show page" do
+describe "user navigates to recipe show page" do
   before(:example) do
-    user = create(:user)
+    @user = create(:user)
     visit login_path
-    fill_in "email", with: user.email
-    fill_in "password", with: user.password
+    fill_in "email", with: @user.email
+    fill_in "password", with: @user.password
     click_on "Log in"
   end
-  it "displays recipe name and instructions" do
-    recipe = create(:recipe)
+  it "displays non-complete recipe instructions if it's the user's recipe" do
+    recipe = create(:recipe, user_id: @user.id)
 
     visit recipe_path(recipe)
 

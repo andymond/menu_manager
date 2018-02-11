@@ -1,12 +1,14 @@
 <h1><%= @recipe.name %></h1>
 
-<div class="recipe_instructions">
-  <%= @recipe.instructions %>
-</div>
+<% if current_user.id == @recipe.user.id || @recipe.complete? %>
+  <div class="recipe_instructions">
+    <%= @recipe.instructions %>
+  </div>
+<% end %>
 
 <div class="recipe_status">
   <%= @recipe.status %>
 </div>
 <% if current_user.id == @recipe.user.id %>
-<%= link_to "Delete Recipe", recipe_path(@recipe), method: :delete %>
+  <%= link_to "Delete Recipe", recipe_path(@recipe), method: :delete %>
 <% end %>
