@@ -7,12 +7,11 @@ describe "user can edit recipe" do
 
     fill_in"recipe[name]", with: "Waffles"
     fill_in"recipe[instructions]", with: "Make the waffles"
-    fill_in"recipe[status]", with: "Incomplete"
-    click_on "Update Recipe"
+    click_on "Submit Recipe For Review"
 
     expect(page).to have_content("Waffles")
     expect(page).to have_content("Make the waffles")
-    expect(page).to have_content("Incomplete")
+    expect(page).to have_content("for_review")
     expect(page).to have_content("Waffles updated.")
   end
 end

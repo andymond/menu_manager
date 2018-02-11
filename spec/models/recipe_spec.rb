@@ -21,11 +21,6 @@ describe Recipe, type: :model do
 
         expect(recipe).to be_invalid
       end
-      it "is invalid without status" do
-        recipe = Recipe.create(name: "Coconut Rice", instructions: "Adjust water amount to the rice age: the newer rice needs less water. Combine water, coconut cream, sugar and salt and mix well until sugar and salt are disolved. Combine with completely rinsed and drained rice, mix thoroughly in cooker, making sure rice is level when finished mixing. Turn cooker on. When cook phase has finished and 'warm' light is on, allow rice to rest 20-30 minutes, then fluff lightly and transfer to rice warmer.")
-
-        expect(recipe).to be_invalid
-      end
     end
   end
 end
