@@ -24,11 +24,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    if current_user.admin?
-      @recipe = Recipe.find(params[:id])
-    else
-      @recipe = current_user.recipes.find_by(id: params[:id])
-    end
+    @recipe = current_user.recipes.find_by(id: params[:id])
     if @recipe.nil?
       redirect_to user_path(current_user), notice: "You can only edit your own recipes."
     end
