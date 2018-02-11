@@ -4,7 +4,8 @@ describe "admin can delete any recipe"
   context "as admin" do
     it "allows admin to delete any recipe" do
       admin = create(:user, role: 1)
-      recipe_1 = create(:recipe, user_id: admin.id)
+      user = create(:user)
+      recipe_1 = create(:recipe, user_id: user.id)
       recipe_2 = create(:recipe, user_id: admin.id, status: "complete")
       recipe_3 = create(:recipe, user_id: admin.id, status: "in_progress")
 
