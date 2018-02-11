@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe Recipe, type: :model do
-  describe "Validations" do
+  describe "validations" do
     describe "valid attributes" do
       it "is valid with name, instructions, and status" do
         recipe = create(:recipe)
@@ -22,5 +22,8 @@ describe Recipe, type: :model do
         expect(recipe).to be_invalid
       end
     end
+  end
+  describe "relationships" do
+    it {should belong_to(:user)}
   end
 end

@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id]) #current_user.recipes.find_by(id: params[:id])
   end
 
   def update
@@ -37,7 +37,7 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id]) #current_user.recipes.find_by(id: params[:id])
     @recipe.destroy
 
     redirect_to recipes_path, notice: "#{@recipe.name} was deleted."
@@ -48,4 +48,5 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:name, :status, :instructions, :employee_credit, :image)
   end
+
 end
