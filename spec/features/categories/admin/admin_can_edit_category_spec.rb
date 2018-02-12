@@ -10,12 +10,12 @@ describe "admin can edit an existing category" do
     visit categories_path
     click_on "Edit Category"
 
-    expect_current(path).to eq(edit_admin_category_path(category))
+    expect(current_path).to eq(edit_admin_category_path(category))
 
     fill_in "category[name]", with: "sweet"
     click_on "Update Category"
 
-    expect(current_path).to eq(categories_path)
+    expect(current_path).to eq(category_path(category))
     expect(page).to have_content("Category 'Sweet' updated.")
   end
 end
