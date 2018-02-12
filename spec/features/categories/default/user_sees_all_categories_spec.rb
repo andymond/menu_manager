@@ -11,8 +11,8 @@ describe "default user can see a list of all categories" do
 
     visit categories_path
 
-    expect(page).to have_content(category_1.name)
-    expect(page).to have_content(category_2.name)
-    expect(page).to have_content(category_3.name)
+    expect(page).to have_link(category_1.name)
+    expect(page).to have_link(category_2.name)
+    expect(page).to have_link(category_3.name)
   end
 end
