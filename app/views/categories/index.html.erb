@@ -4,7 +4,7 @@
 
 <% @categories.each do |category| %>
   <div class="index-category">
-    <%= category.name %>
+    <%= link_to category.name, category_path(category) %>
   </div>
   <% if current_user.admin? %>
   <div class="modify">
