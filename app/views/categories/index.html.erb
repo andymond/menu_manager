@@ -6,4 +6,9 @@
   <div class="index-category">
     <%= category.name %>
   </div>
+  <% if current_user.admin? %>
+  <div class="modify">
+    <%= link_to "Edit Category", edit_admin_category_path(category) %>
+  </div>
+  <% end %>
 <% end %>
