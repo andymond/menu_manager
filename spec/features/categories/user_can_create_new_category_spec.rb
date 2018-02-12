@@ -5,7 +5,7 @@ describe "user can create new category" do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit "categories_path"
+    visit categories_path
     click_on "New Category"
 
     expect(current_path).to eq(new_category_path)
