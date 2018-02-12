@@ -1,3 +1,17 @@
-<h1>Welcome, <%= current_user.username %></h1>
+<% if current_user.id == @user.id %>
+  <h5>Welcome, <%= @user.username %></h5>
+<% end %>
 
+<p>Username: <%= @user.username %></p>
+<p>Current Email:<%= @user.email %></p>
+<p>Recipes:</p>
+<% @user.recipes.each do |recipe| %>
+  <%= link_to recipe.name, recipe_path(recipe) %>
+<% end %>
+
+<% if current_user.id == @user.id %>
+<%= @user.role %>
+<%= @user.created_at %>
+<%= link_to "Update Profile", edit_user_path(@user) %>
 <%= link_to "Logout", login_path, method: :delete %>
+<% end %>

@@ -1,0 +1,9 @@
+<h1>Edit <%= @user.username %></h1>
+
+<%= form_for @user do |f| %>
+
+<%= f.label :role %>
+<%= f.select :role, options_for_select(["admin", "default"].map {|r| [r.capitalize, r]}) %>
+
+<%= f.submit %>
+<% end %>

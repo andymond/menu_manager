@@ -13,6 +13,12 @@ describe User, type: :model do
 
       expect(user_2).to be_invalid
     end
+    it "is invalid if username already exists" do
+      user = create(:user)
+      user_2 = User.create(username: user.username, email: "larry@web.com", password: "12345")
+
+      expect(user_2).to be_invalid
+    end
     it "is invalid with no username" do
       user = User.create(email: "a@a.com", password: "password")
 
