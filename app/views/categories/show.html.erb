@@ -5,3 +5,10 @@
     <%= link_to recipe.name, recipe_path(recipe)%>
   </div>
 <% end %>
+
+<% if current_user.admin? %>
+<div class="modify">
+  <%= link_to "Edit Category", edit_admin_category_path(@category) %>
+  <%= link_to "Delete Category", admin_category_path(@category), method: :delete, class: "delete#{@category.name}" %>
+</div>
+<% end %>
