@@ -11,6 +11,7 @@ describe "admins can delete users" do
     click_on "Remove #{user.username}"
 
     expect(current_path).to eq(users_path)
+    expect(page).to have_content("Cook removed from staff.")
     expect(page).to_not have_content(user.username)
   end
 end
