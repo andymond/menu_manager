@@ -19,4 +19,8 @@ describe Category, type: :model do
       expect(category).to be_invalid
     end
   end
+  describe "relationships" do
+    it {should have_many(:recipe_categories)}
+    it {should have_many(:recipes)}
+  end
 end
