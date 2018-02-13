@@ -4,5 +4,5 @@
 <%= link_to "Join MenuManager", new_user_path %>
 <%= link_to "Login", login_path %>
 <% else %>
-We've got <%= Recipe.all.count %> recipes!
+<%= link_to "View Recipes", recipes_path %>
 <% end %>
