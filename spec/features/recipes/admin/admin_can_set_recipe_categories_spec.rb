@@ -3,7 +3,7 @@ require "rails_helper"
 describe "admin can alter existing recipes categories" do
   it "allows admin to set recipe categories from existing categories" do
     admin = create(:user, role: 1)
-    recipe = create(:recipe, user_id: user.id)
+    recipe = create(:recipe, user_id: admin.id)
     category = create(:category)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
@@ -12,11 +12,11 @@ describe "admin can alter existing recipes categories" do
     click_on "Set Recipe Categories"
 
     expect(page).to have_content("#{recipe.name} updated.")
-    expect(page).to have_link(category.name)
+    expect(recipe.category_ids).to include(category.id)
   end
   it "allows user to add new category" do
     admin = create(:user, role: 1)
-    recipe = create(:recipe, user_id: user.id)
+    recipe = create(:recipe, user_id: admin.id)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 

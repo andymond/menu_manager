@@ -32,11 +32,7 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    recipe_categories = params[:recipe][:category_ids]
     if @recipe.update(recipe_params)
-      recipe_categories.shift unless recipe_categories.nil?
-      @recipe.category_ids = recipe_categories
-
       redirect_to recipe_path(@recipe), notice: "#{@recipe.name} updated."
     else
       flash.now[:notice] = "#{@recipe.name} was not updated due to an error."
