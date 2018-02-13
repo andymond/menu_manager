@@ -1,10 +1,13 @@
-<h1><%= @recipe.name %></h1>
+<h3><%= @recipe.name %></h3>
 
-<% @recipe.categories.each do |category| %>
-  <p><%= link_to category.name, category_path(category) %></p>
-<% end %>
-
-
+<div class="rc-button">
+  <p>This Recipes' Categories</p>
+  <div class="recipe-categories">
+    <% @recipe.categories.each do |category| %>
+      <div><%= link_to category.name, category_path(category) %></div>
+    <% end %>
+  </div>
+</div>
 
 <% if current_user.id == @recipe.user.id || @recipe.complete? %>
   <div class="recipe_instructions">

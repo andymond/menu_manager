@@ -1,0 +1,13 @@
+.rc-button:hover .recipe-categories {
+  display: block;
+  background-color: #d9edf4;
+  a { padding: 10px;}
+  div {
+    &:hover {background-color: #e0f4fc;}
+  }
+}
+
+.recipe-categories {
+  position: absolute;
+  display: none;
+}
