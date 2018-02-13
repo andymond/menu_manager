@@ -27,7 +27,7 @@ describe "admin can delete any recipe"
       expect(page).to have_content("#{recipe_2.name} was deleted")
       expect(page).to_not have_content(recipe_2)
 
-      visit recipe_path(recipe_3)
+      visit admin_recipe_path(recipe_3)
       click_on "Delete Recipe"
 
       expect(current_path).to eq(recipes_path)

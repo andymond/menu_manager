@@ -2,6 +2,10 @@
   <% if current_user.admin? %>
     <%= link_to "View Recipe Details", admin_recipe_path, class: "details-link" %>
 <% end %>
+  <% if current_user.id == @recipe.user.id %>
+  <%= link_to "Edit Recipe", edit_recipe_path(@recipe), class: "details-link" %>
+  <%= link_to "Delete Recipe", recipe_path(@recipe), method: :delete, class: "details-link" %>
+  <% end %>
 </div>
 
 <%= render partial: "layouts/recipe_layout" %>

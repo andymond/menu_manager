@@ -15,8 +15,8 @@ describe "user visits category show page" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit category_path(category)
 
-    expect(page).to have_content(recipe_1.name)
-    expect(page).to have_content(recipe_2.name)
-    expect(page).to_not have_content(recipe_3.name)
+    expect(page).to have_content(recipe_1.name.capitalize)
+    expect(page).to have_content(recipe_2.name.capitalize)
+    expect(page).to_not have_content(recipe_3.name.capitalize)
   end
 end
