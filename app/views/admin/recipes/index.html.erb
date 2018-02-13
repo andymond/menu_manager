@@ -2,7 +2,7 @@
 
 <% @recipes.each do |recipe| %>
   <div class="index_recipe">
-    <%= link_to recipe.name, recipe_path(recipe) %>
+    <%= link_to recipe.name, admin_recipe_path(recipe) %>
     <%= recipe.status %>
     <%= recipe.user.username %>
     <div class="modify">

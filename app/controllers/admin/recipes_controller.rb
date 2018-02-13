@@ -11,7 +11,6 @@ class Admin::RecipesController < Admin::BaseController
   def update
     @recipe = Recipe.find(params[:id])
     @recipe.update(recipe_params)
-    binding.pry
     recipe_categories = params[:recipe][:category_ids]
     recipe_categories.shift unless recipe_categories.nil?
     @recipe.category_ids = recipe_categories

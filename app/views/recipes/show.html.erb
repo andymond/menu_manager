@@ -1,5 +1,10 @@
-<%= render partial: "layouts/recipe_layout" %>
+<div class="admin-recipe-view">
+  <% if current_user.admin? %>
+    <%= link_to "View Recipe Details", admin_recipe_path, class: "details-link" %>
+<% end %>
+</div>
 
+<%= render partial: "layouts/recipe_layout" %>
 
 <!-- <% if !current_user.admin? && current_user.id == @recipe.user.id %>
   <%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>
