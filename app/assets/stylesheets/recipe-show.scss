@@ -26,6 +26,7 @@
 .admin-recipe-view {
   display: flex;
   width: 100vw;
+  min-width: 450px;
   border-bottom: 3px #40788e solid;
   justify-content: space-between;
   .recipe-stats {
