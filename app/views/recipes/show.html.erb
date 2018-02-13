@@ -18,11 +18,12 @@
   </div>
 <% end %>
 
-<%= form_for @recipe do |f| %>
+<!-- <%= form_for @recipe do |f| %>
    <%= f.label "Set Categories" %>
    <%= collection_select(:recipe, :category_ids, Category.all, :id, :name, {}, {multiple: true}) %>
    <%= f.submit "Set Recipe Categories" %>
-<% end %>
+<% end %> -->
+
 
 <% if !current_user.admin? && current_user.id == @recipe.user.id %>
   <%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>
