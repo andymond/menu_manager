@@ -1,24 +1,7 @@
-<h1><%= @recipe.name %></h1>
-
-<% @recipe.categories.each do |category| %>
-  <p><%= link_to category.name, category_path(category) %></p>
-<% end %>
+<%= render partial: "layouts/recipe_layout" %>
 
 
-
-<% if current_user.id == @recipe.user.id || @recipe.complete? %>
-  <div class="recipe_instructions">
-    <%= @recipe.instructions %>
-  </div>
-<% end %>
-
-<% if current_user.id == @recipe.user.id  && !@recipe.complete? %>
-  <div class="recipe_status">
-    <%= @recipe.status %>
-  </div>
-<% end %>
-
-<% if !current_user.admin? && current_user.id == @recipe.user.id %>
+<!-- <% if !current_user.admin? && current_user.id == @recipe.user.id %>
   <%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>
   <%= link_to "Delete Recipe", recipe_path(@recipe), method: :delete %>
 <% end %>
@@ -27,4 +10,4 @@
   <%= link_to "View Recipe Details", admin_recipe_path(@recipe)%>
   <%= link_to "Edit Recipe", edit_admin_recipe_path(@recipe) %>
   <%= link_to "Delete Recipe", recipe_path(@recipe), method: :delete %>
-<% end %>
+<% end %> -->

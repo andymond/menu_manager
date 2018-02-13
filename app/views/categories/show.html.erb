@@ -1,14 +1,13 @@
-<h1><%= @category.name %></h1>
-
-<% @category.recipes.each do |recipe| %>
-  <div class="cat-index-recipe">
-    <%= link_to recipe.name, recipe_path(recipe)%>
+<h1><%= @category.name.capitalize %></h1>
+  <% if current_user.admin? %>
+  <div class="admin-category-view">
+    <%= link_to "Edit Category", edit_admin_category_path(@category), class: "edit#{@category.name}" %>
+    <%= link_to "Delete Category", admin_category_path(@category), method: :delete, class: "delete#{@category.name}" %>
   </div>
-<% end %>
+  <% end %>
 
-<% if current_user.admin? %>
-<div class="modify">
-  <%= link_to "Edit Category", edit_admin_category_path(@category), class: "edit#{@category.name}" %>
-  <%= link_to "Delete Category", admin_category_path(@category), method: :delete, class: "delete#{@category.name}" %>
-</div>
+<section class="category-recipe-list">
+  <% @category.recipes.each do |recipe| %>
+    <div><%= link_to recipe.name.capitalize, recipe_path(recipe)%></div>
+</section>
 <% end %>

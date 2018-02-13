@@ -1,0 +1,22 @@
+h1 {
+  margin-bottom: 0px;
+}
+
+.admin-category-view {
+  width: 100vw;
+  display: flex;
+  justify-content: flex-end;
+  a {font-size: 14px;
+     margin: 5px 13px 5px 0px;}
+  border-bottom: 3px #40788e solid;
+}
+
+.category-recipe-list {
+  width: 100vw;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  div { margin: 15px;}
+}
