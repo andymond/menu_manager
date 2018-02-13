@@ -1,27 +1,34 @@
-<h3><%= @recipe.name %></h3>
-
-<div class="rc-button">
-  <p>This Recipes' Categories</p>
-  <div class="recipe-categories">
-    <% @recipe.categories.each do |category| %>
-      <div><%= link_to category.name, category_path(category) %></div>
+<div class="recipe-layout">
+  <div class="recipe">
+    <h3><%= @recipe.name %></h3>
+    <% if current_user.id == @recipe.user.id || @recipe.complete? %>
+      <div class="recipe-instructions">
+        <%= @recipe.instructions %>
+      </div>
     <% end %>
+    <div class="recipe-status">
+      <%= @recipe.status %>
+    </div>
   </div>
+  <aside>
+    <p>Recipe Categories</p>
+    <div class="recipe-categories">
+      <% @recipe.categories.each do |category| %>
+        <div class="recipe-category"><%= link_to category.name, category_path(category) %></div>
+      <% end %>
+    </div>
+  </aside>
 </div>
 
-<% if current_user.id == @recipe.user.id || @recipe.complete? %>
-  <div class="recipe_instructions">
-    <%= @recipe.instructions %>
-  </div>
-<% end %>
 
-<% if current_user.id == @recipe.user.id  && !@recipe.complete? %>
-  <div class="recipe_status">
-    <%= @recipe.status %>
-  </div>
-<% end %>
 
-<% if !current_user.admin? && current_user.id == @recipe.user.id %>
+
+
+
+
+
+
+<!-- <% if !current_user.admin? && current_user.id == @recipe.user.id %>
   <%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>
   <%= link_to "Delete Recipe", recipe_path(@recipe), method: :delete %>
 <% end %>
@@ -30,4 +37,4 @@
   <%= link_to "View Recipe Details", admin_recipe_path(@recipe)%>
   <%= link_to "Edit Recipe", edit_admin_recipe_path(@recipe) %>
   <%= link_to "Delete Recipe", recipe_path(@recipe), method: :delete %>
-<% end %>
+<% end %> -->

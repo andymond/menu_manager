@@ -1,13 +1,23 @@
-.rc-button:hover .recipe-categories {
-  display: block;
-  background-color: #d9edf4;
-  a { padding: 10px;}
-  div {
-    &:hover {background-color: #e0f4fc;}
+.recipe-layout {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  aside {
+    width: 200px;
+    border-left: 3px #40788e solid;
+    p { text-align: center;}
   }
 }
 
+.recipe {
+  margin-left: 30px;
+}
+
 .recipe-categories {
-  position: absolute;
-  display: none;
+  width: 200px;
+  min-height: 90vh;
+  background-color:#c8eaf7;
+  a {padding: 10px;
+     &:hover {color: #2b7887}}
+  .recipe-category:hover {background-color: #def0f7;}
 }
