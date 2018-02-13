@@ -10,6 +10,7 @@ body {
 }
 
 header {
+  min-width: 450px;
   display: flex;
   justify-content: center;
   margin: 20px 0px;
@@ -20,7 +21,8 @@ header {
      }
 }
 
-nav {
+.access-options {
+  min-width: 450px;
   background-color: #40788e;
   color: white;
   a {
@@ -29,12 +31,20 @@ nav {
   display: flex;
   width: 100vw;
   justify-content: space-between;
-  .navlinks { margin-left: 20px;}
-  .access-link { margin-right: 20px;}
+  align-items: center;
+  .access-status {
+    margin-left: 20px;
+    font-size: 14px;
+  }
+  .access-link {
+    margin-right: 20px;
+    font-size: 16px;
+  }
 }
 
 section {
   width: 100vw;
+  min-width: 450px;
   min-height: 85vh;
   display: flex;
   flex-direction: column;
