@@ -1,7 +1,7 @@
-<h1>All Recipes</h1>
+<h1>Recipes</h1>
 
 <% @recipes.each do |recipe| %>
   <div>
-    <%=recipe.name%>
+    <%= link_to recipe.name, recipe_path(recipe)%>
   </div>
 <% end %>
