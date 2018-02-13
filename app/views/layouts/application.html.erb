@@ -19,6 +19,11 @@
       <%= image_tag "#{header_images.sample}.svg", alt: "dinner set", class: "header-image" %>
        <h1><%= link_to "Menu Manager", root_path %></h1>
     </header>
+    <% if current_user.admin? %>
+      <%= render partial: "layouts/admin_navbar" %>
+    <% else %>
+      <%= render partial: "layouts/default_navbar" %>
+    <% end %>
     <div class="access-options">
       <% if !current_user.nil? %>
       <div class="access-status"> Logged in as <%= link_to current_user.username.capitalize, user_path(current_user) %> </div>
