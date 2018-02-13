@@ -1,5 +1,11 @@
 <h1><%= @recipe.name %></h1>
 
+<% @recipe.categories.each do |category| %>
+  <p><%= link_to category.name, category_path(category) %></p>
+<% end %>
+
+
+
 <% if current_user.id == @recipe.user.id || @recipe.complete? %>
   <div class="recipe_instructions">
     <%= @recipe.instructions %>
@@ -11,7 +17,6 @@
     <%= @recipe.status %>
   </div>
 <% end %>
-
 
 <% if !current_user.admin? && current_user.id == @recipe.user.id %>
   <%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>

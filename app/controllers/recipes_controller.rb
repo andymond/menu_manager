@@ -57,7 +57,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :status, :instructions, :employee_credit, :image)
+    params.require(:recipe).permit(:name, :status, :instructions, :image, :category_ids)
   end
 
   def require_login

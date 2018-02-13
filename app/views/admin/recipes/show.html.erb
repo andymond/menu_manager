@@ -20,6 +20,13 @@
   <%= @recipe.updated_at %>
 </div>
 
+<%= form_for [:admin, @recipe] do |f| %>
+   <%= f.label "Recipe Categories" %>
+   <%= collection_select(:recipe, :category_ids, Category.all, :id, :name, {}, {multiple: true}) %>
+   <%= f.submit "Set Recipe Categories" %>
+<% end %>
+
+<%= link_to "New Category", new_category_path %>
 <%= link_to "Edit Recipe", edit_admin_recipe_path(@recipe) %>
 <%= link_to "Delete Recipe", recipe_path(@recipe), method: :delete %>
 <%= link_to "Cook Recipe View", recipe_path(@recipe) %>

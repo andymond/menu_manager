@@ -19,7 +19,7 @@ describe "admin can edit any recipe"
       click_on "Update Recipe"
 
       expect(page).to have_content("Pasta updated.")
-      expect(current_path).to eq(recipe_path(recipe_1))
+      expect(current_path).to eq(admin_recipe_path(recipe_1))
     end
     it "allows admin to edit their own recipe" do
       admin = create(:user, role: 1)
@@ -37,6 +37,6 @@ describe "admin can edit any recipe"
       click_on "Update Recipe"
 
       expect(page).to have_content("Pasta updated.")
-      expect(current_path).to eq(recipe_path(recipe_1))
+      expect(current_path).to eq(admin_recipe_path(recipe_1))
     end
   end
