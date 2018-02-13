@@ -1,4 +1,5 @@
 <nav>
+  <%= link_to "Profile", user_path(current_user) %>
   <%= link_to "Staff List", users_path %>
   <%= link_to "New Staff Member", new_user_path %>
   <%= link_to "Recipes", admin_recipes_path %>
