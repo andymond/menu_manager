@@ -1,5 +1,9 @@
 <h1><%= @recipe.name %></h1>
 
+<% @recipe.categories.each do |category| %>
+  <p><%= category.name %></p>
+<% end %>
+
 <% if current_user.id == @recipe.user.id || @recipe.complete? %>
   <div class="recipe_instructions">
     <%= @recipe.instructions %>
@@ -12,6 +16,11 @@
   </div>
 <% end %>
 
+<%= form_for @recipe do |f| %>
+   <%= f.label "Set Categories" %>
+   <%= collection_select(:recipe, :category_ids, Category.all, :id, :name, {}, {multiple: true}) %>
+   <%= f.submit "Set Recipe Categories" %>
+<% end %>
 
 <% if !current_user.admin? && current_user.id == @recipe.user.id %>
   <%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>
