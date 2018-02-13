@@ -22,3 +22,27 @@
      &:hover {color: #2b7887}}
   .recipe-category:hover {background-color: #def0f7;}
 }
+.admin-recipe-view {
+  display: flex;
+  width: 100vw;
+  border-bottom: 3px #40788e solid;
+  justify-content: space-between;
+  .recipe-stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 14px;
+  }
+  .admin-recipe-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    a {font-size: 14px;}
+  }
+  .recipe-stat{
+    margin: 5px 0px 5px 5px;
+  }
+  .recipe-option{
+    margin: 5px 13px 5px 0px;
+  }
+}

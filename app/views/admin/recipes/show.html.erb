@@ -1,39 +1,27 @@
-<h1><%= @recipe.name %></h1>
+<div class="admin-recipe-view">
+  <div class="recipe-stats">
+    <div class="recipe-stat">Recipe added by <%= link_to @recipe.user.username.capitalize, user_path(@recipe.user) %></div>
 
+    <div class="recipe-stat">
+      at <%= @recipe.created_at %>,
+    </div>
 
-<div class="recipe-categories">
-  <% @recipe.categories.each do |category| %>
-    <p><%= link_to category.name, category_path(category) %></p>
-  <% end %>
+    <div class="recipe-stat">
+      last updated at <%= @recipe.updated_at %>
+    </div>
+  </div>
+
+  <div class="admin-recipe-options">
+    <%= link_to "Edit Recipe", edit_admin_recipe_path(@recipe), class: "recipe-option" %>
+    <%= link_to "Delete Recipe", recipe_path(@recipe), method: :delete, class: "recipe-option" %>
+    <%= link_to "Cook Recipe-View", recipe_path(@recipe), class: "recipe-option" %>
+  </div>
 </div>
 
-<div class="recipe-status">
-  <%= @recipe.status %>
-</div>
-
-<div class="recipe-instructions">
-  <%= @recipe.instructions %>
-</div>
-
-<div class="recipe-user">
-  <%= @recipe.user.username %>
-</div>
-
-<div class="recipe-created">
-  <%= @recipe.created_at %>
-</div>
-
-<div class="recipe-updated">
-  <%= @recipe.updated_at %>
-</div>
-
-<%= form_for [:admin, @recipe] do |f| %>
+<!-- <%= form_for [:admin, @recipe] do |f| %>
    <%= f.label "Recipe Categories" %>
    <%= collection_select(:recipe, :category_ids, Category.all, :id, :name, {}, {multiple: true}) %>
    <%= f.submit "Set Recipe Categories" %>
-<% end %>
+<% end %> -->
 
-<%= link_to "New Category", new_category_path %>
-<%= link_to "Edit Recipe", edit_admin_recipe_path(@recipe) %>
-<%= link_to "Delete Recipe", recipe_path(@recipe), method: :delete %>
-<%= link_to "Cook Recipe View", recipe_path(@recipe) %>
+<%= render partial: "layouts/recipe_layout" %>
