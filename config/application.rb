@@ -27,5 +27,6 @@ module MenuManager
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.assets.precompile += %w(application.css)
   end
 end
