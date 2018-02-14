@@ -4,6 +4,7 @@
 
 <div class="set-categories">
   <p>Set Recipe Categories</p>
+  <p class="hold-cmd">{hold CMD to select multiple options}</p>
   <%= form_for [:admin, @recipe] do |f| %>
      <%= collection_select(:recipe, :category_ids, Category.all, :id, :name, {}, {multiple: true}) %>
      <%= f.submit "Set" %>
