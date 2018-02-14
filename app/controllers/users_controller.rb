@@ -33,6 +33,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    binding.pry
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash.notice = "#{@user.username} updated."
@@ -46,6 +47,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :image)
   end
 end
