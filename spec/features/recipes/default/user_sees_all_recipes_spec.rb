@@ -20,5 +20,6 @@ describe "logged in default user sees all complete recipes" do
     expect(page).to have_content(recipe_2.name)
     expect(page).to have_content(recipe_3.name)
     expect(page).to have_content(recipe_4.name)
+    expect(page).to have_link("New Recipe")
   end
 end

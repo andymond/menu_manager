@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "User visits recipes index" do
+describe "Admin visits recipes index" do
   context "as admin" do
     it "allows admin to view all recipes" do
       admin = create(:user, role: 1)
@@ -13,6 +13,7 @@ describe "User visits recipes index" do
       expect(page).to have_content(recipe.name)
       expect(page).to have_link("Delete")
       expect(page).to have_link("Edit")
+      expect(page).to have_link("New Recipe")
     end
   end
   context "as default user" do
