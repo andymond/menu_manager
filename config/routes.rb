@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     resources :users, only: [:edit, :destroy]
     resources :categories, only: [:edit, :update, :destroy]
   end
-  resources :recipes
+  resources :recipes do
+    resources :recipe_categories, only: [:new, :create]
+  end
+  resources :recipe_categories, only: [:destroy]
   resources :categories, except: [:edit, :update, :destroy]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -18,10 +18,4 @@
   </div>
 </div>
 
-<!-- <%= form_for [:admin, @recipe] do |f| %>
-   <%= f.label "Recipe Categories" %>
-   <%= collection_select(:recipe, :category_ids, Category.all, :id, :name, {}, {multiple: true}) %>
-   <%= f.submit "Set Recipe Categories" %>
-<% end %> -->
-
 <%= render partial: "layouts/recipe_layout" %>
