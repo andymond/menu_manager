@@ -27,6 +27,11 @@
   border-top: 3px #40788e solid;
   a {padding: 10px;
      &:hover {color: #2b7887}}
+  .recipe-category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .recipe-category:hover {background-color: #def0f7;}
   .new-category:hover{background-color: #91e0ff}
   .spacer {

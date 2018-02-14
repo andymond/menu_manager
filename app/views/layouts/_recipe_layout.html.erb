@@ -17,7 +17,7 @@
         <div class="recipe-category">
           <%= link_to category.name.capitalize, category_path(category) %>
           <% rc = RecipeCategory.find_by(recipe_id: @recipe.id, category_id: category.id) %>
-          <%= link_to "Remove", recipe_category_path(rc), method: :delete, class: "remove-category" %>
+          <%= link_to "Remove", recipe_category_path(rc), method: :delete, class: "modify" %>
         </div>
       <% end %>
       <div class="spacer"></div>
