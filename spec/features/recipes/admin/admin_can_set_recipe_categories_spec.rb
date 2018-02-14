@@ -2,13 +2,12 @@ require "rails_helper"
 
 describe "admin can alter existing recipes categories" do
   it "allows admin to set recipe categories from existing categories" do
-    skip
     admin = create(:user, role: 1)
     recipe = create(:recipe, user_id: admin.id)
     category = create(:category)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-    visit admin_recipe_path(recipe)
+    visit edit_admin_recipe_path(recipe)
     select(category.name, :from => "recipe[category_ids][]")
     click_on "Set Recipe Categories"
 
