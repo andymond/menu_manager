@@ -7,9 +7,12 @@
     display: none;
   }
   &:hover .new-image {
-    display: flex;
-    align-content: center;
+    display: block;
     position: relative;
     bottom: 70px;
   }
+}
+
+.no-image {
+  margin-top: 10px
 }

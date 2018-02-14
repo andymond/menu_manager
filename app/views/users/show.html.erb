@@ -1,5 +1,12 @@
-
-<% if @user.image.url != nil %>
+<% if current_user.image_file_name.nil? %>
+<div class="no-image">
+  You haven't uploaded a picture!
+  <%= form_for @user do |f| %>
+     <%= f.file_field :image %><br>
+     <%= f.submit "Update Picture" %>
+  <% end %>
+</div>
+<% else %>
   <div class="user-prof-pic">
     <%= image_tag @user.image.url, class: "user-prof-pic" %>
     <div class="new-image">
@@ -9,13 +16,8 @@
       <% end %>
     </div>
   </div>
-<% else %>
-  <%= form_for @user do |f| %>
-     <%= f.file_field :image %><br>
-     <%= f.submit "Add a Profile Picture" %>
-  <% end %>
-  </div>
 <% end %>
+
 
 <% if current_user.id == @user.id %>
   <h5>Welcome, <%= @user.username %></h5>

@@ -4,6 +4,6 @@ class User < ApplicationRecord
   has_many :recipes, dependent: :destroy
   has_attached_file :image
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
-
   enum role: [:default, :admin]
+  scope :abc, -> {order(:username)}
 end

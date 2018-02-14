@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :require_login
 
   def index
-    @recipes = Recipe.where(status: :complete)
+    @recipes = Recipe.where(user_id: current_user.id)
   end
 
   def show
