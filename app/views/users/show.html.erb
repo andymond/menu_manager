@@ -1,11 +1,20 @@
 
-<div class="user-prof-pic">
-  <%= image_tag @user.image.url %>
-</div>
-<%= form_for @user do |f| %>
-   <%= f.label :image, "Upload Profile Picture" %>
-   <%= f.file_field :image %>
-   <%= f.submit %>
+<% if @user.image.url != nil %>
+  <div class="user-prof-pic">
+    <%= image_tag @user.image.url, class: "user-prof-pic" %>
+    <div class="new-image">
+      <%= form_for @user do |f| %>
+         <%= f.file_field :image %><br>
+         <%= f.submit "Update Picture" %>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <%= form_for @user do |f| %>
+     <%= f.file_field :image %><br>
+     <%= f.submit "Add a Profile Picture" %>
+  <% end %>
+  </div>
 <% end %>
 
 <% if current_user.id == @user.id %>
