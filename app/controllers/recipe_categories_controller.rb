@@ -5,7 +5,8 @@ class RecipeCategoriesController < ApplicationController
   end
 
   def create
-    @rc = RecipeCategory.new(rc_params)
+    binding.pry
+    @rc = RecipeCategory.find_or_create_by(rc_params)
     if @rc.save
       redirect_to recipe_path(params[:recipe_id])
     else
