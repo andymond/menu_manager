@@ -3,3 +3,16 @@ nav {
   text-align: center;
   a {margin: 0px 15px;}
 }
+.dropdown {
+  display: inline-block;
+  .dropdown-content {
+    display: none;
+  }
+  &:hover .dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: #eff3f4;
+    border-top: 1px #2b7887 dashed;
+    border-radius: 5px;
+  }
+}
