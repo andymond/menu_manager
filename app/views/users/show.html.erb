@@ -1,3 +1,13 @@
+
+<div class="user-prof-pic">
+  <%= image_tag @user.image.url %>
+</div>
+<%= form_for @user do |f| %>
+   <%= f.label :image, "Upload Profile Picture" %>
+   <%= f.file_field :image %>
+   <%= f.submit %>
+<% end %>
+
 <% if current_user.id == @user.id %>
   <h5>Welcome, <%= @user.username %></h5>
 <% end %>
