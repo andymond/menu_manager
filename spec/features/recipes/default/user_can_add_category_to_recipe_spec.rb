@@ -8,7 +8,7 @@ describe "user can add category to recipe" do
 
     visit recipe_path(recipe)
     click_on("Edit Recipe")
-    fill_in "recipe[category_list]", with: "recipe_category, recipe_category2"
+    fill_in "recipe[category_ids]", with: "recipe_category"
     click_on "Update Recipe"
 
     expect(page).to have_content("recipe_category")

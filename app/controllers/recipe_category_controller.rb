@@ -1,0 +1,3 @@
+class RecipeCategoryController < ApplicationController
+
+end
