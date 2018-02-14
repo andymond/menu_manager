@@ -6,9 +6,6 @@
   <%= f.label :instructions %>
   <%= f.text_field :instructions %>
 
-  <%= f.label :image %>
-  <%= f.text_field :image %>
-
   <%= f.label :status %>
   <%= f.select :status, options_for_select(["complete", "in_progress", "for_review"].map {|s| [s.capitalize, s]}) %>
 
