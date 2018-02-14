@@ -4,7 +4,7 @@
     <div class="recipe-status">
       Status: <%= @recipe.status %>
     </div>
-    <% if current_user.id == @recipe.user.id || @recipe.complete? %>
+    <% if current_user.id == @recipe.user.id || @recipe.complete? || current_user.admin? %>
       <div class="recipe-instructions">
         <%= @recipe.instructions %>
       </div>
