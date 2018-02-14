@@ -1,14 +1,14 @@
 <div class="recipe-layout">
   <div class="recipe">
     <h3><%= @recipe.name %></h3>
+    <div class="recipe-status">
+      Status: <%= @recipe.status %>
+    </div>
     <% if current_user.id == @recipe.user.id || @recipe.complete? %>
       <div class="recipe-instructions">
         <%= @recipe.instructions %>
       </div>
     <% end %>
-    <div class="recipe-status">
-      <%= @recipe.status %>
-    </div>
   </div>
   <aside>
     <p>Recipe Categories</p>
@@ -16,8 +16,11 @@
       <% @recipe.categories.each do |category| %>
         <div class="recipe-category"><%= link_to category.name.capitalize, category_path(category) %></div>
       <% end %>
+      <div class="spacer"></div>
       <div class="new-category">
         <%= link_to "Add Category", new_recipe_recipe_category_path(@recipe) %>
+      </div>
+      <div class="new-category">
         <%= link_to "New Category", new_category_path%>
       </div>
     </div>

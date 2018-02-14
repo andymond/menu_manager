@@ -11,6 +11,13 @@
 
 .recipe {
   margin-left: 30px;
+  h3 {margin-bottom: 10px;}
+  .recipe-status {
+    font-size: 15px;
+    font-weight: 300;
+    font-style: oblique;
+    margin-bottom: 20px;
+  }
 }
 
 .recipe-categories {
@@ -22,7 +29,12 @@
      &:hover {color: #2b7887}}
   .recipe-category:hover {background-color: #def0f7;}
   .new-category:hover{background-color: #91e0ff}
+  .spacer {
+    width: 200px;
+    height: 20px;
+  }
 }
+
 .admin-recipe-view {
   display: flex;
   width: 100vw;
