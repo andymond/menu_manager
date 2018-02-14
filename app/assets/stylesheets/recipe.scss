@@ -31,6 +31,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    a {
+      max-width: 110px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      &:hover {
+        background-color: inherit;
+        max-width: none;
+        overflow: visible;
+      }
+    }
   }
   .recipe-category:hover {background-color: #def0f7;}
   .new-category:hover{background-color: #91e0ff}

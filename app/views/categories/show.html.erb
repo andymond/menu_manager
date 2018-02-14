@@ -6,7 +6,7 @@
   </div>
   <% end %>
 
-<section class="category-recipe-list">
+<section>
   <% @category.recipes.each do |recipe| %>
     <div><%= link_to recipe.name.capitalize, recipe_path(recipe)%></div>
 </section>
