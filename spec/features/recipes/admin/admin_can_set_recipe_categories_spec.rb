@@ -14,7 +14,7 @@ describe "admin can alter existing recipes categories" do
     expect(page).to have_content("#{recipe.name} updated.")
     expect(recipe.category_ids).to include(category.id)
   end
-  it "allows user to add new category" do
+  it "allows admin to add new category" do
     admin = create(:user, role: 1)
     recipe = create(:recipe, user_id: admin.id)
 
