@@ -15,6 +15,19 @@ class RecipeCategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    rc = RecipeCategory.find(params[:id])
+    category = rc.category
+    recipe = rc.recipe
+    if rc.destroy
+      flash.notice = "#{category.name} removed from #{recipe.name}"
+      redirect_to recipe_path(recipe)
+    else
+      flash.notice = "Couldn't remove #{category}"
+      redirect_to recipe_path(recipe)
+    end
+  end
+
   private
 
   def rc_params

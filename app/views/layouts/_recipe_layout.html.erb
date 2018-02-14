@@ -14,7 +14,11 @@
     <p>Recipe Categories</p>
     <div class="recipe-categories">
       <% @recipe.categories.each do |category| %>
-        <div class="recipe-category"><%= link_to category.name.capitalize, category_path(category) %></div>
+        <div class="recipe-category">
+          <%= link_to category.name.capitalize, category_path(category) %>
+          <% rc = RecipeCategory.find_by(recipe_id: @recipe.id, category_id: category.id) %>
+          <%= link_to "Remove", recipe_category_path(rc), method: :delete, class: "remove-category" %>
+        </div>
       <% end %>
       <div class="spacer"></div>
       <div class="new-category">

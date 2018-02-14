@@ -9,16 +9,13 @@ describe "user can remove category from recipe" do
 
      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-     visit admin_recipe_path(recipe)
+     visit recipe_path(recipe)
 
      expect(page).to have_content(category.name)
 
-     click_on "Remove Recipe"
+     click_on "Remove"
 
-     select category.name, from: "categories"
-     click_on "Remove Recipe"
-
-     expect(current_path).to eq(admin_recipe_path(recipe))
-     epect(page).to_not have_content(category.name)
+     expect(current_path).to eq(recipe_path(recipe))
+     expect(page).to have_content("#{category.name} removed from #{recipe.name}")
    end
 end
