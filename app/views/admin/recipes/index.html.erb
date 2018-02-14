@@ -1,13 +1,12 @@
 <h1>All Chef Recipes</h1>
 
 <% @recipes.each do |recipe| %>
-  <div class="index_recipe">
+  <div class="index-recipe">
     <%= link_to recipe.name, admin_recipe_path(recipe) %>
-    <%= recipe.status %>
-    <%= recipe.user.username %>
+      <p class="details">By: <%= recipe.user.username %> | Status: <%= recipe.status %></p>
     <div class="modify">
-      <%= link_to "Edit Recipe", edit_admin_recipe_path(recipe) %>
-      <%= link_to "Delete Recipe", recipe_path(recipe), data: {confirm: "Are you sure you want to delete #{recipe.name}?"} %>
+      <%= link_to "Edit", edit_admin_recipe_path(recipe), class: "edit-delete" %>
+      <%= link_to "Delete", recipe_path(recipe), data: {confirm: "Are you sure you want to delete #{recipe.name}?"} %>
     </div>
   </div>
 <% end %>
