@@ -6,7 +6,7 @@
       <p class="details">By: <%= recipe.user.username %> | Status: <%= recipe.status %></p>
     <div class="modify">
       <%= link_to "Edit", edit_admin_recipe_path(recipe), class: "edit-delete" %>
-      <%= link_to "Delete", recipe_path(recipe), data: {confirm: "Are you sure you want to delete #{recipe.name}?"} %>
+      <%= link_to "Delete", recipe_path(recipe), method: :delete, data: {confirm: "Are you sure you want to delete #{recipe.name}?"} %>
     </div>
   </div>
 <% end %>
