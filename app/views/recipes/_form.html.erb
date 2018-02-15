@@ -6,6 +6,12 @@
   <%= f.label :instructions %>
   <%= f.text_area :instructions %>
 
+  <div class="set-categories">
+    <p>Set Recipe Categories</p>
+    <p class="hold-cmd">{hold CMD to select multiple options}</p>
+    <%= collection_select(:recipe, :category_ids, Category.all, :id, :name, {}, {multiple: true}) %>
+    <div><%= link_to "New Category", new_category_path, class: "hold-cmd" %></div>
+  </div>
   <%= f.submit "Submit Recipe For Review" %>
 
 <% end %>
