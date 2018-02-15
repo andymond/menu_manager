@@ -87,3 +87,21 @@
   flex-direction: column;
   text-align: center;
 }
+
+.new_comment {
+  width: 400px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  input {
+    width: 200px;
+  }
+  label {
+    margin-top: 15px;
+    font-size: 15px;
+  }
+  #comment_body {
+    margin-bottom: 15px;
+    height: 100px;
+  }
+}
