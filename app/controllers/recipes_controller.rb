@@ -47,7 +47,12 @@ class RecipesController < ApplicationController
       redirect_to user_path(current_user), notice: "You can only edit your own recipes."
     else
       @recipe.destroy
-      redirect_to recipes_path, notice: "#{@recipe.name} was deleted."
+      flash.notice = "#{@recipe.name} was deleted."
+      if current_user.admin?
+        redirect_to admin_recipes_path
+      else
+        redirect_to recipes_path
+      end
     end
   end
 

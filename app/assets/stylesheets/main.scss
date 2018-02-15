@@ -8,14 +8,25 @@
   &:hover {cursor: default;}
 }
 
-.logged-out-landing {
+.logged-out-landing, .login {
   margin: 75px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 3px #e3eaf4 solid;
+  padding: 30px;
+  .login-button {margin-top: 15px;}
   a {
     margin: 10px 0px;
   }
+}
+
+.login-frame {
+  margin: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px #e3eaf4 solid;
 }
 
 @keyframes fade {
