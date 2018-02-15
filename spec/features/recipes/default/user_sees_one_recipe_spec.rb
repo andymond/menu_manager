@@ -22,12 +22,24 @@ describe "user navigates to recipe show page" do
     comment = recipe.comments.create(user: "bob", body: "nice!")
     comment_2 = recipe.comments.create(user: "bot", body: "not!")
 
-
     visit recipe_path(recipe)
-    
+
     expect(page).to have_content(comment.user)
     expect(page).to have_content(comment.body)
     expect(page).to have_content(comment_2.user)
     expect(page).to have_content(comment_2.body)
+  end
+  it "allows user to comment" do
+    recipe = create(:recipe, user_id: @user.id)
+
+    visit recipe_path(recipe)
+
+    fill_in "comment[user]", with: "sir"
+    fill_in "comment[body]", with: "mixalot"
+    click_on "Submit"
+
+    expect(current_path).to eq(recipe_path(recipe))
+    expect(page).to have_content("sir")
+    expect(page).to have_content("mixalot")
   end
 end
