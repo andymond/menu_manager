@@ -8,6 +8,7 @@
       <div class="recipe-instructions">
         <%= @recipe.instructions %>
       </div>
+      <%= render partial: "recipes/comment", collection: @recipe.comments.reverse %>
     <% end %>
   </div>
   <aside>
