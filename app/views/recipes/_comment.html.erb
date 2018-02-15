@@ -3,4 +3,5 @@
 <div class="comments">
   <p><%= comment.user %> commented: </p>
   <p><%= comment.body %></p>
+  <%= link_to "Delete Comment", admin_comment_path(comment), method: :delete, class: "edit-delete" %>
 </div>
