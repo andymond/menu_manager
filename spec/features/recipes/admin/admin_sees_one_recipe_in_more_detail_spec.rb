@@ -32,7 +32,7 @@ describe "admin navigates to admin recipe show" do
 
     click_on "Delete Comment"
 
-    expect(current_path).to eq(recipe_path(recipe))
+    expect(current_path).to eq(admin_recipes_path)
     expect(page).to_not have_content("sir")
     expect(page).to_not have_content("mixalot")
   end
