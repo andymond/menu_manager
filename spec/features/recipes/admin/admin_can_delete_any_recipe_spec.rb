@@ -14,7 +14,7 @@ describe "admin can delete any recipe"
       visit admin_recipe_path(recipe_1)
       click_on "Delete Recipe"
 
-      expect(current_path).to eq(recipes_path)
+      expect(current_path).to eq(admin_recipes_path)
       expect(page).to have_content("#{recipe_1.name} was deleted")
       expect(page).to_not have_content(recipe_1)
 
@@ -23,14 +23,14 @@ describe "admin can delete any recipe"
       expect(current_path).to eq(admin_recipe_path(recipe_2))
       click_on "Delete Recipe"
 
-      expect(current_path).to eq(recipes_path)
+      expect(current_path).to eq(admin_recipes_path)
       expect(page).to have_content("#{recipe_2.name} was deleted")
       expect(page).to_not have_content(recipe_2)
 
       visit admin_recipe_path(recipe_3)
       click_on "Delete Recipe"
 
-      expect(current_path).to eq(recipes_path)
+      expect(current_path).to eq(admin_recipes_path)
       expect(page).to have_content("#{recipe_3.name} was deleted")
       expect(page).to_not have_content(recipe_3)
     end
