@@ -2,14 +2,18 @@
   height: 200px;
   width: 200px;
   border-radius: 100%;
-  margin-top: 10px;
+  margin: 10px 0px;
   .new-image {
     display: none;
   }
   &:hover .new-image {
-    display: block;
+    text-align: center;
+    background-color: white;
+    opacity: .9;
+    padding: 10px;
+    display: flex;
     position: relative;
-    bottom: 70px;
+    bottom: 90px;
   }
 }
 
