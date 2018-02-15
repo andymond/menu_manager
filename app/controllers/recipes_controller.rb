@@ -1,12 +1,12 @@
 class RecipesController < ApplicationController
   before_action :require_login
+  before_action :set_recipe, only: [:show, :update, :destroy]
 
   def index
     @recipes = Recipe.where("user_id = ? OR status = ?", current_user.id, 0)
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
     @comment = Comment.new
     @comment.recipe_id = @recipe.id
   end
@@ -34,7 +34,6 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
       redirect_to recipe_path(@recipe), notice: "#{@recipe.name} updated."
     else
@@ -45,7 +44,7 @@ class RecipesController < ApplicationController
 
   def destroy
     if current_user.admin?
-      @recipe = Recipe.find(params[:id])
+      @recipe
     else
       @recipe = current_user.recipes.find_by(id: params[:id])
     end
@@ -65,5 +64,9 @@ class RecipesController < ApplicationController
 
   def require_login
     redirect_to root_path, notice: "Please log in to access MenuManager." if current_user.nil?
+  end
+
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
   end
 end
