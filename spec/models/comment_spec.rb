@@ -18,4 +18,7 @@ describe Comment, type: :model do
       expect(comment).to be_invalid
     end
   end
+  describe "relationships" do
+    it {should belong_to(:recipe)}
+  end
 end
