@@ -12,7 +12,7 @@ describe "admin navigates to admin recipe show" do
     expect(page).to have_content(recipe.instructions)
     expect(page).to have_content(recipe.status)
     expect(page).to have_content(recipe.user.username)
-    expect(page).to have_content(recipe.created_at)
-    expect(page).to have_content(recipe.updated_at)
+    expect(page).to have_content(recipe.created_at.to_formatted_s(:long).slice(0..-7))
+    expect(page).to have_content(recipe.updated_at.to_formatted_s(:long).slice(0..-7))
   end
 end
