@@ -34,12 +34,10 @@ describe "user navigates to recipe show page" do
 
     visit recipe_path(recipe)
 
-    fill_in "comment[user]", with: "sir"
     fill_in "comment[body]", with: "mixalot"
     click_on "Submit"
 
     expect(current_path).to eq(recipe_path(recipe))
-    expect(page).to have_content("sir")
     expect(page).to have_content("mixalot")
   end
 end

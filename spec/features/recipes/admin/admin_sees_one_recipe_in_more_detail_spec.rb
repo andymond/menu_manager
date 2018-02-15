@@ -22,18 +22,15 @@ describe "admin navigates to admin recipe show" do
 
     visit recipe_path(recipe)
 
-    fill_in "comment[user]", with: "sir"
     fill_in "comment[body]", with: "mixalot"
     click_on "Submit"
 
     expect(current_path).to eq(recipe_path(recipe))
-    expect(page).to have_content("sir")
     expect(page).to have_content("mixalot")
 
     click_on "Delete Comment"
 
-    expect(current_path).to eq(admin_recipes_path)
-    expect(page).to_not have_content("sir")
+    expect(current_path).to eq(admin_recipe_path(recipe))
     expect(page).to_not have_content("mixalot")
   end
 end
