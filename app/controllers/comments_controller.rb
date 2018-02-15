@@ -4,11 +4,10 @@ class CommentsController < ApplicationController
     @comment.recipe_id = params[:recipe_id]
     if @comment.save
       flash.notice = "Comment posted."
-      redirect_to recipe_path(params[:recipe_id])
     else
       flash.notice = "Comment couldn't be posted."
-      redirect_to recipe_path(@comment.recipe)
     end
+    redirect_to recipe_path(@comment.recipe)
   end
 
   private

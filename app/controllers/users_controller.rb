@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update]
 
   def index
     @users = User.abc
@@ -20,11 +21,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
     if current_user.id.to_s == params[:id]
       @user = User.find(current_user.id)
     else
@@ -33,7 +32,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       flash.notice = "#{@user.username} updated."
       redirect_to user_path(@user)
@@ -47,5 +45,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :image)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
