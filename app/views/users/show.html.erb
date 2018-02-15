@@ -6,15 +6,17 @@
      <%= f.submit "Update Picture" %>
   <% end %>
 </div>
-<% else %>
+<% else%>
   <div class="user-prof-pic">
     <%= image_tag @user.image.url, class: "user-prof-pic" %>
+    <% if current_user.id == @user.id  %>
     <div class="new-image">
       <%= form_for @user do |f| %>
          <%= f.file_field :image %><br>
          <%= f.submit "Update Picture" %>
       <% end %>
     </div>
+    <% end %>
   </div>
 <% end %>
 
