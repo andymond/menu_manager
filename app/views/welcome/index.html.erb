@@ -1,6 +1,4 @@
-<% if current_user.nil? %>
+<div class="logged-out-landing">
   <%= link_to "Join MenuManager", new_user_path %>
   <%= link_to "Login", login_path %>
-<% else %>
-  <%= link_to "View Recipes", recipes_path %>
-<% end %>
+</div>
