@@ -7,6 +7,8 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @comment = Comment.new
+    @comment.recipe_id = @recipe.id
   end
 
   def new

@@ -10,9 +10,11 @@ Rails.application.routes.draw do
     resources :recipes, except: [:new, :destroy]
     resources :users, only: [:edit, :destroy]
     resources :categories, only: [:edit, :update, :destroy]
+    resources :comments, only: [:destroy]
   end
   resources :recipes do
     resources :recipe_categories, only: [:new, :create]
+    resources :comments, only: [:new, :create]
   end
   resources :recipe_categories, only: [:destroy]
   resources :categories, except: [:edit, :update, :destroy]

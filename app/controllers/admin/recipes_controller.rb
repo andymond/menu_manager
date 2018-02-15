@@ -20,6 +20,7 @@ class Admin::RecipesController < Admin::BaseController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @comment = Comment.new
   end
 
   private
