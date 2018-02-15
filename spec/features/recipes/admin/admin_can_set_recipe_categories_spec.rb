@@ -9,7 +9,7 @@ describe "admin can alter existing recipes categories" do
 
     visit edit_admin_recipe_path(recipe)
     select(category.name, :from => "recipe[category_ids][]")
-    click_on "Set Recipe Categories"
+    click_on "Update Recipe"
 
     expect(page).to have_content("#{recipe.name} updated.")
     expect(recipe.category_ids).to include(category.id)

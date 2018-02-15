@@ -1,0 +1,26 @@
+.user-prof-pic {
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+  margin: 10px 0px;
+  .new-image {
+    display: none;
+  }
+  &:hover .new-image {
+    text-align: center;
+    background-color: white;
+    opacity: .9;
+    padding: 10px;
+    display: flex;
+    position: relative;
+    bottom: 90px;
+  }
+}
+
+.no-image {
+  margin-top: 10px
+}
+
+.user-stats {
+  margin: 0;
+}

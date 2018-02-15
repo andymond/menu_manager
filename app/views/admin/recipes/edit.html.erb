@@ -1,9 +1,3 @@
 <h1>Edit <%= "#{@recipe.name}" %></h1>
-
 <%= render partial: "admin/recipes/form" %>
-
-<%= form_for [:admin, @recipe] do |f| %>
-   <%= f.label "Recipe Categories" %>
-   <%= collection_select(:recipe, :category_ids, Category.all, :id, :name, {}, {multiple: true}) %>
-   <%= f.submit "Set Recipe Categories" %>
-<% end %>
+</div>

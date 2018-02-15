@@ -4,16 +4,20 @@
   <%= f.text_field :name %>
 
   <%= f.label :instructions %>
-  <%= f.text_field :instructions %>
-
-  <%= f.label :image %>
-  <%= f.text_field :image %>
+  <%= f.text_area :instructions %>
 
   <%= f.label :status %>
   <%= f.select :status, options_for_select(["complete", "in_progress", "for_review"].map {|s| [s.capitalize, s]}) %>
 
   <%= f.label "Created by" %>
   <%= f.select :user_id, options_for_select(@users.map {|u| [u.username, u.id]}) %>
+
+  <div class="set-categories">
+    <p>Set Recipe Categories</p>
+    <p class="hold-cmd">{hold CMD to select multiple options}</p>
+    <%= collection_select(:recipe, :category_ids, Category.all, :id, :name, {}, {multiple: true}) %>
+    <div><%= link_to "New Category", new_category_path, class: "hold-cmd" %></div>
+  </div>
 
   <%= f.submit %>
 

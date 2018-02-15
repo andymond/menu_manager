@@ -1,13 +1,13 @@
 <div class="admin-recipe-view">
   <div class="recipe-stats">
-    <div class="recipe-stat">Recipe added by <%= link_to @recipe.user.username.capitalize, user_path(@recipe.user) %></div>
+    <div class="recipe-stat">Added by <%= link_to @recipe.user.username.capitalize, user_path(@recipe.user) %></div>
 
     <div class="recipe-stat">
-      at <%= @recipe.created_at %>,
+      on <%= @recipe.created_at.to_formatted_s(:long).slice(0..-7) %>,
     </div>
 
     <div class="recipe-stat">
-      last updated at <%= @recipe.updated_at %>
+      last updated on <%= @recipe.updated_at.to_formatted_s(:long).slice(0..-7) %>
     </div>
   </div>
 

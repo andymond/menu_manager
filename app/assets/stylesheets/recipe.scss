@@ -27,6 +27,23 @@
   border-top: 3px #40788e solid;
   a {padding: 10px;
      &:hover {color: #2b7887}}
+  .recipe-category {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+      white-space: nowrap;
+      max-width: 110px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      &:hover {
+        background-color: inherit;
+        max-width: none;
+        overflow: visible;
+      }
+    }
+  }
   .recipe-category:hover {background-color: #def0f7;}
   .new-category:hover{background-color: #91e0ff}
   .spacer {
@@ -63,4 +80,10 @@
 
 .details-link {
   margin: 0px 30px;
+}
+
+.index-recipe {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }

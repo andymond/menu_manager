@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :require_login
 
   def index
-    @recipes = Recipe.where(status: :complete)
+    @recipes = Recipe.where("user_id = ? OR status = ?", current_user.id, 0)
   end
 
   def show
@@ -16,6 +16,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.new(recipe_params)
     if @recipe.save
+      @recipe.category_ids = params[:recipe][:category_ids]
       redirect_to recipe_path(@recipe), notice: "#{@recipe.name} created."
     else
       flash.now[:notice] = "#{@recipe.name} was not created due to an error."
