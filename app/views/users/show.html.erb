@@ -13,7 +13,7 @@
       </div>
   </div>
 </div>
-
+<div class="user-info">
  <% if current_user.image_file_name.nil? %>
  <div class="no-image">
    You haven't uploaded a picture!
@@ -35,8 +35,6 @@
      <% end %>
    </div>
  <% end %>
-
-
  <% if current_user.id == @user.id %>
    <h5>Welcome, <%= @user.username %></h5>
  <% end %>
@@ -50,3 +48,4 @@
  <%= link_to "Update Profile", edit_user_path(@user) %>
  <%= link_to "Logout", login_path, method: :delete %>
  <% end %>
+</div>

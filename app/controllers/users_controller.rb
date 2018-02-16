@@ -44,7 +44,11 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation, :image)
+    if params[:user].nil?
+      {image_file_name: nil}
+    else
+      params.require(:user).permit(:username, :email, :password, :password_confirmation, :image)
+    end
   end
 
   def set_user
