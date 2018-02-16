@@ -1,3 +1,25 @@
+.user-profile-overlay {
+  min-height: 85vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row-reverse;
+  position: absolute;
+}
+
+.user-recipes {
+  border-left: 3px #40788e solid;
+  width: 250px;
+  background-color: #c8eaf7;
+  .ur-header {
+    border-bottom: 3px #40788e solid;
+    padding: 15px;
+  }
+  .user-recipe {
+    padding: 10px;
+    &:hover {background-color: #def0f7;}
+  }
+}
+
 .user-prof-pic {
   height: 200px;
   width: 200px;
